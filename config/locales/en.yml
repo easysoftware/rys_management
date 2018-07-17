@@ -1,0 +1,8 @@
+en:
+  rys_management:
+    plugin_name: "RysManagement"
+
+  rys_features:
+    rys_management:
+      title: "rys_management"
+      description: "rys_management"
