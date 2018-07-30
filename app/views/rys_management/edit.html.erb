@@ -1,0 +1,51 @@
+<%= title @rys_plugin.name %>
+
+<h2><%= l('rys.features') %></h2>
+
+<div class="autoscroll">
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= l(:field_name) %></th>
+      <th><%= l(:field_description) %></th>
+      <th><%= l(:field_active) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rys_plugin.feature_records.sort_by{|r| r.name.split('.') }.each do |feature| %>
+      <tr>
+        <td class="subject" style="color: <%= feature.active? ? 'green' : 'red' %>"><%= feature.feature.title %></td>
+        <td><%= feature.feature.description %></td>
+        <td><%= checked_image(feature.active) %></td>
+        <td class="buttons text-right">
+          <% if feature.active? %>
+            <%= link_to l('rys_management.deactivate'), rys_management_toggle_feature_path(feature, active: '0', back_url: request.fullpath), method: 'POST' %>
+          <% else %>
+            <%= link_to l('rys_management.activate'), rys_management_toggle_feature_path(feature, active: '1', back_url: request.fullpath), method: 'POST' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<% if lookup_context.template_exists?(@rys_plugin.edit_partial_path, nil, :partial) %>
+  <h2><%= l('label_settings') %></h2>
+
+  <%= form_for(@easy_settings, url: rys_management_update_path(@rys_plugin.rys_id), method: 'PUT', html: { class: 'form-box easy-setting-plugin-form tabular' }) do |form| %>
+    <%= hidden_field_tag :back_url, request.fullpath %>
+
+    <%= render @rys_plugin.edit_partial_path, rys_plugin: @rys_plugin, form: form %>
+
+    <div class="form-actions">
+      <%= form.submit l(:button_update), class: 'buttom button-primary' %>
+
+      <% if params[:back_url].present? %>
+        <%= link_to l(:button_back), params[:back_url], class: 'button' %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

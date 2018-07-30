@@ -1,8 +1,6 @@
 en:
   rys_management:
-    plugin_name: "RysManagement"
+    plugin_name: Rys Management
+    activate: Activate
+    deactivate: Deactivate
 
-  rys_features:
-    rys_management:
-      title: "rys_management"
-      description: "rys_management"

@@ -1,0 +1,28 @@
+<%= title l('rys.rys_plugins') %>
+
+<div class="autoscroll">
+<table class="list">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% RysManagement.all do |plugin| %>
+      <tr>
+        <td><%= plugin.name %></td>
+        <td><%= plugin.description %></td>
+        <td><%= plugin.feature_records_count %></td>
+
+        <td class="buttons text-right">
+          <%= link_to l(:button_edit), rys_management_edit_path(plugin.rys_id), class: 'icon icon-edit' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

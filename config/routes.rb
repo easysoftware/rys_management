@@ -1,17 +1,7 @@
 Rails.application.routes.draw do
 
-  # Usually definition
-  #
-  # get 'rys_management_issue_1', to: 'issues#index'
-
-  # Conditional definition
-  #
-  # get 'rys_management_issues_2', to: 'issues#index', rys_feature: 'rys_management.issue'
-
-  # Conditional block definiton
-  #
-  # rys_feature 'rys_management.issue' do
-  #   get 'rys_management_issues_3', to: 'issues#index'
-  # end
+  get 'rys_management/:rys_id/edit', to: 'rys_management#edit', as: 'rys_management_edit'
+  put 'rys_management/:rys_id/update', to: 'rys_management#update', as: 'rys_management_update'
+  post 'rys_management/toggle_feature/:id', to: 'rys_management#toggle_feature', as: 'rys_management_toggle_feature'
 
 end
