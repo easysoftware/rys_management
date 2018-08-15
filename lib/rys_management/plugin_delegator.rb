@@ -35,6 +35,16 @@ module RysManagement
       "rys_management/plugins/#{rys_id}"
     end
 
+    def prerelease?
+      if parent.const_defined?(:VERSION)
+        Gem::Version.new(parent.const_get(:VERSION)).prerelease?
+      else
+        false
+      end
+    rescue
+      false
+    end
+
     private
 
       def l(*args)

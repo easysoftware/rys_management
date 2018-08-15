@@ -1,12 +1,12 @@
 <% html_title @rys_plugin.name %>
 
-<h2><%= @rys_plugin.name%>
-  <span class="rys_management_indicator-beta">Beta</span>
-</h2>
+<h2>
+  <%= @rys_plugin.name %>
 
-<% content_for :header_tags do %>
-  <%= stylesheet_link_tag 'rys_management/rys_management_main' %>
-<% end %>
+  <% if @rys_plugin.prerelease? %>
+    <span class="rys_management_indicator-beta">Beta</span>
+  <% end %>
+</h2>
 
 <h4 class="u-text--bold"><%= l('rys.features') %></h4>
 
@@ -56,4 +56,8 @@
       <% end %>
     </div>
   <% end %>
+<% end %>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'rys_management/rys_management_main' %>
 <% end %>
