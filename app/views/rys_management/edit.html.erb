@@ -1,13 +1,14 @@
-<%= title @rys_plugin.name, class: "rys_management_title" %>
-<% if @rys_plugin.name == "Easy BI" %>
+<% html_title @rys_plugin.name %>
+
+<h2><%= @rys_plugin.name%>
   <span class="rys_management_indicator-beta">Beta</span>
-<% end %>
+</h2>
 
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag 'rys_management/rys_management_main' %>
 <% end %>
 
-<h4 class="rys_text-bold"><%= l('rys.features') %></h4>
+<h4 class="u-text--bold"><%= l('rys.features') %></h4>
 
 <div class="autoscroll">
 <table class="list">
@@ -40,7 +41,7 @@
 </div>
 
 <% if lookup_context.template_exists?(@rys_plugin.edit_partial_path, nil, :partial) %>
-  <h4 class="rys_text-bold"><%= l('label_settings') %></h4>
+  <h4 class="u-text--bold"><%= l('label_settings') %></h4>
 
   <%= form_for(@easy_settings, url: rys_management_update_path(@rys_plugin.rys_id), method: 'PUT', html: { class: 'form-box easy-setting-plugin-form tabular' }) do |form| %>
     <%= hidden_field_tag :back_url, request.fullpath %>

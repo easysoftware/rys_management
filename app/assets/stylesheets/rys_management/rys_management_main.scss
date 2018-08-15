@@ -1,9 +1,6 @@
 @import "rys_management_variables";
 
 .rys_management {
-  &_title {
-    display: inline-block;
-  }
   &_indicator-beta {
     margin-right: 4*$gap;
     position: absolute;
@@ -13,8 +10,4 @@
     top: 1.75*$gap;
     padding-left: .25*$gap;
   }
-}
-
-.rys_text-bold {
-  font-weight: bold;
 }
