@@ -6,8 +6,8 @@ module RysManagement
   autoload :PluginDelegator, 'rys_management/plugin_delegator'
   autoload :PluginConfig,    'rys_management/plugin_config'
 
-  def self.all(&block)
-    Rys::PluginsManagement.all(delegate_with: PluginDelegator, &block)
+  def self.all(**options, &block)
+    Rys::PluginsManagement.all(delegate_with: PluginDelegator, **options, &block)
   end
 
   def self.find(plugin)
