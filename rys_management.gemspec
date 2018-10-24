@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 $:.push File.expand_path('lib', __dir__)
 
 require 'rys_management/version'
@@ -6,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = 'rys_management'
   s.version     = RysManagement::VERSION
   s.authors     = ['Ondřej Moravčík']
-  s.email       = ['moravcik.ondrej@gmail.com']
+  s.email       = ['ondrej.moravcik@easy.cz']
   s.homepage    = 'https://easysoftware.com'
   s.summary     = 'Summary of RysManagement.'
   s.description = 'Description of RysManagement.'
