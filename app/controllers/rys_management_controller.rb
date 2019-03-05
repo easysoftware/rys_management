@@ -4,6 +4,8 @@ class RysManagementController < ApplicationController
   before_action :find_plugin, only: [:edit, :update]
   before_action :find_feature_record, only: [:toggle_feature]
 
+  accept_api_auth :toggle_feature
+
   def edit
     @easy_settings = EasySettings::FormModel.new(prefix: @rys_plugin.rys_id)
   end
@@ -25,10 +27,13 @@ class RysManagementController < ApplicationController
   end
 
   def toggle_feature
-    @feature_record.active = params[:active]
+    @feature_record.active = params[:active].to_s.to_boolean
     @feature_record.save
 
-    redirect_back_or_default admin_plugins_path
+    respond_to do |format|
+      format.api { render_api_ok }
+      format.html { redirect_back_or_default admin_plugins_path }
+    end
   end
 
   private
@@ -39,8 +44,8 @@ class RysManagementController < ApplicationController
     end
 
     def find_feature_record
-      @feature_record = RysFeatureRecord.find_by(id: params[:id])
-      render_404 if @feature_record.nil?
+      @feature_record = RysFeatureRecord.mutli_find(params[:id])
+      render_404 if !@feature_record.is_a?(RysFeatureRecord)
     end
 
 end
