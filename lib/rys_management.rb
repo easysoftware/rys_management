@@ -6,6 +6,10 @@ module RysManagement
   autoload :PluginDelegator, 'rys_management/plugin_delegator'
   autoload :PluginConfig,    'rys_management/plugin_config'
 
+  configure do |c|
+    c.systemic = true
+  end
+
   def self.all(**options, &block)
     Rys::PluginsManagement.all(delegate_with: PluginDelegator, **options, &block)
   end
