@@ -13,7 +13,7 @@ module RysManagement
     generators do
       Rys::Hook.register('rys.plugin_generator.after_generated') do |generator|
         source = RysManagement::Engine.root.join('lib/generators/rys_management/templates/plugin_setting.html.erb')
-        target = 'app/views/rys_management/plugins/_%name%.html.erb'
+        target = 'app/views/rys_management/plugins/_%underscored_name%.html.erb'
 
         generator.template source, target
       end
