@@ -19,7 +19,11 @@
         <td><%= plugin.feature_records_count %></td>
 
         <td class="buttons text-right">
-          <%= link_to l(:button_edit), rys_management_edit_path(plugin.rys_id), class: 'icon icon-edit' %>
+          <% if plugin.active? %>
+            <%= link_to l(:button_edit), rys_management_edit_path(plugin.rys_id), class: 'icon icon-edit' %>
+          <% else %>
+            <%= l(:rys_management.plugin_deactivated) %>
+          <% end %>
         </td>
       </tr>
     <% end %>
