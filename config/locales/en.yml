@@ -4,3 +4,4 @@ en:
     activate: Activate
     deactivate: Deactivate
     other_features: Other features
+    plugin_deactivated: Plugin is deactivated
