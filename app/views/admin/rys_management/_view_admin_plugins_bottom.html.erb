@@ -22,12 +22,7 @@
           <% if plugin.plugin_active? %>
             <%= link_to l(:button_edit), rys_management_edit_path(plugin.rys_id), class: 'icon icon-edit' %>
           <% else %>
-            <% hosting_plugin = EasyHostingPlugin.find_by(plugin_name: plugin.plugin_id) %>
-            <% if hosting_plugin.should_be_trial? %>
-              <%= link_to(l(:button_try_plugin, days: EasyHostingPlugin::TRIAL_DAYS), admin_activate_trial_path(plugin_name: plugin.plugin_id, skip_restart: '1'), method: 'post', class: 'button-positive orange', title: l(:button_try_plugin, days: EasyHostingPlugin::TRIAL_DAYS)) %>
-            <% else %>
-              <%= l(:trial_count_exceeded) %>
-            <% end %>
+            <%= plugin.deactivated_plugin_html(self) %>
           <% end %>
         </td>
       </tr>
