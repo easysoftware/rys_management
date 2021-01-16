@@ -22,8 +22,9 @@ module RysManagement
     end
 
     def prerelease?
-      if parent.const_defined?(:VERSION)
-        Gem::Version.new(parent.const_get(:VERSION)).prerelease?
+      feature_module_parent = module_parent
+      if feature_module_parent.const_defined?(:VERSION)
+        Gem::Version.new(feature_module_parent.const_get(:VERSION)).prerelease?
       else
         false
       end
