@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib,patches}/**/{*,.*}', 'Rakefile', 'README.md', 'gems.rb']
   s.test_files = Dir['test/**/*', 'spec/**/*']
 
-  s.add_dependency 'rys', '~> 1.4.12'
+  s.add_dependency 'rys', '~> 2.0.0'
+  s.add_dependency 'rails', '>= 6.0'
 end
