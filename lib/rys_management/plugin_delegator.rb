@@ -34,9 +34,9 @@ module RysManagement
 
     private
 
-      def l(*args)
-        I18n.translate(*args)
-      end
+    def l(key, **args)
+      I18n.translate(key, **args)
+    end
 
   end
 end
