@@ -1,4 +1,7 @@
 ## [Unreleased]
+### Added
+- Ruby 3.0 compatibility
+
 ## [2.0.0] - 2021-01-27
 ### Added
 - Rails 6.1 compatibility
