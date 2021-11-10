@@ -1,4 +1,9 @@
 ## [Unreleased]
+## [2.0.2] - 2021-11-03
+### Fixed
+- Allow rys_id with dots
+
+## [2.0.1] - 2021-08-31
 ### Added
 - Ruby 3.0 compatibility
 
