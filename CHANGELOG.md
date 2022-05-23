@@ -1,4 +1,8 @@
 ## [Unreleased]
+## [2.0.3] - 2022-05-23
+### Removed
+- extra stylesheets
+
 ## [2.0.2] - 2021-11-03
 ### Fixed
 - Allow rys_id with dots
