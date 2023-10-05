@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- rys version dependency
 ## [2.0.3] - 2022-05-23
 ### Removed
 - extra stylesheets
