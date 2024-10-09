@@ -21,7 +21,7 @@
     <%= render @rys_plugin.edit_partial_path, rys_plugin: @rys_plugin, form: form %>
 
     <div class="form-actions">
-      <%= form.submit l(:button_update), class: 'buttom button-primary' %>
+      <%= form.submit l(:button_update), class: 'buttom button-positive' %>
 
       <% if params[:back_url].present? %>
         <%= link_to l(:button_back), params[:back_url], class: 'button' %>

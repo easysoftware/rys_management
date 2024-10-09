@@ -1,6 +1,11 @@
 ## [Unreleased]
 ### Changed
+- update button class from primary -> positive
+
+## [2.1.0] - 2023-10-06
+### Changed
 - rys version dependency
+
 ## [2.0.3] - 2022-05-23
 ### Removed
 - extra stylesheets
